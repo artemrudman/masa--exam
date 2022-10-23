@@ -142,8 +142,8 @@ FROM
 
 const numArray = [5, 10, 15, 25, 30 ,35, 40];
 
-const sum = numArray.reduce((accumulator, value) => {
-  return accumulator + value;
+const sum = numArray.reduce((curSum, value) => {
+  return curSum + value;
 }, 0);
 
 console.log(sum);
