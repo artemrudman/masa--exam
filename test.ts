@@ -1,3 +1,5 @@
+//16
+
 public static addMonths(date: Date, value: number): Date {
     let expectedMonth: number = date.getMonth() + value;
     if (expectedMonth > 12) {
@@ -24,7 +26,7 @@ public static addMonths(date: Date, value: number): Date {
 
 
 
-
+//19
 
 
 public static padLeft(input: number, places: number): string {
@@ -32,6 +34,10 @@ public static padLeft(input: number, places: number): string {
     return Array(+(zeroes > 0 && zeroes)).join("0") + input.toString();
 }
 
+function which input two parameters (input as a number and plases s a number). Finally we get a string.
+inside the function we create const zeroes as a number with logic (places - input.toString().length + 1)
+
+Here ==> (input.toString().length) we count length string of number variable input.
 
 
 
@@ -39,6 +45,8 @@ public static padLeft(input: number, places: number): string {
 
 
 
+
+//20
 
 interface user {
     id: number;

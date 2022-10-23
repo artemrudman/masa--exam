@@ -133,7 +133,10 @@ You need to write a query that returns for each student his/her parents' informa
 | Patrice Raymond | Orphan |
 
 
-SELECT (first_name + last_name) as Student FROM student FULL OUTER JOIN ISNULL((first_name + last_name + phone), Orphan) as Parents
+SELECT (first_name + last_name) as Student, (first_name + last_name + birthdate) as Parents
+FROM 
+    student INNER JOIN parent
+    ON student.student_id = parent.parent_id
 
 18. **Write a method in JS/TS that gets as an argument an array of numbers and returns the sum of all array members**. *=> 5 points*
 
