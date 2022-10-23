@@ -28,7 +28,6 @@ export interface authenticationToken {
 export interface jwtUserData {
     userId: number;
     roleId: Role;
-    loginDate: Date;
 }
 
 export interface AuthenticatedRequest extends Request, authenticationToken { }

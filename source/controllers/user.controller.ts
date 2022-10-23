@@ -9,9 +9,9 @@ import { DbService } from "../services/db.service";
 import { ErrorService } from '../services/error.service';
 import { UserService } from '../services/user.service';
 
+const errorService: ErrorService = new ErrorService();
 const userService: UserService = new UserService(errorService);
 const dbService: DbService = new DbService(errorService);
-const errorService: ErrorService = new ErrorService();
 
 const getById = async (req: Request, res: Response, next: NextFunction) => {
     const numericParamOrError: number | systemError = RequestHelper.ParseNumericInput(errorService, req.params.id)
@@ -82,7 +82,8 @@ const updateById = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const deleteById = async (req: Request, res: Response, next: NextFunction) => {
-    const numericParamOrError: number | systemError = RequestHelper.ParseNumericInput(errorService, req.params.id)
+    const numericParamOrError: number | systemError = RequestHelper.ParseNumericInput(errorService, req.params.id);
+    
     if (typeof numericParamOrError === "number") {
         if (numericParamOrError > 0) {
             userService.deleteById(numericParamOrError, (req as AuthenticatedRequest).userData.userId)
@@ -91,15 +92,13 @@ const deleteById = async (req: Request, res: Response, next: NextFunction) => {
                 })
                 .catch((error: systemError) => {
                     return ResponseHelper.handleError(res, error);
-                });
+                })
         }
+    }
         else {
             // TODO: Error handling
         }
-    }
-    else {
-        return ResponseHelper.handleError(res, numericParamOrError);
-    }
+
 };
 
 export default { getById, add, updateById, deleteById };
