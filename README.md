@@ -57,8 +57,8 @@
  - [*] HTTP:443
 
 9*. **What is a trigger?** *=> 2 points*
- - [ ] Trigger is a piece of code executed by the database engine whenever some action is performed on a database object like tables, view, etc.
- - [*] Trigger is a method that is called JS/TS environment whenever a certain event is fired to complete an asynchronous code execution
+ - [*] Trigger is a piece of code executed by the database engine whenever some action is performed on a database object like tables, view, etc.
+ - [ ] Trigger is a method that is called JS/TS environment whenever a certain event is fired to complete an asynchronous code execution
  - [ ] Trigger is a processing being performed right after the merge of a code to main branch in order to run a build for the system
  - [ ] Trigger is the mechanism by which the router is sending its data to the controller in nodejs server
 
