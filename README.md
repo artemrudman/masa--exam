@@ -225,8 +225,9 @@ Finally we get a string in return where in Array all zeroes which > 0 and exists
 					this.getRole(roleId)
 				])
 				.then((results: [user | role]) => {
-					return results[1].userIds.indexOf(results[0].id) > -1;
+					if (results[1].userIds.indexOf(results[0].id) > -1;
 					resolve(results[0]);
+					else reject (results[0])
 				});
 			});
 		}
