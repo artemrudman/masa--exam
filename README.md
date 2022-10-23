@@ -120,6 +120,38 @@ These are functions that have access to the request object, the response object,
 		    return  date;
 	    }
 
+===============================================
+class DateHelper {
+
+    public static addMonths(changedDate: Date, value: number): Date {
+        let expectedMonth: number = (changedDate.getMonth() + value);
+        if (expectedMonth > 11) { 
+            expectedMonth = expectedMonth % 12;
+        }
+
+        if (expectedMonth < 0) {
+            expectedMonth += 12;
+        }
+
+        changedDate.setMonth(changedDate.getMonth() + value);
+
+        const daysToAdd: number = changedDate.getMonth() > expectedMonth ? -1 : 1;
+        let month = changedDate.getMonth();
+        while (changedDate.getMonth() !== expectedMonth) {
+            let date = changedDate.setDate(changedDate.getDate() + daysToAdd);
+        }
+
+        return changedDate;
+    }
+}
+
+console.log(DateHelper.addMonths(new Date("2019-11-30"), 2));
+
+==================================================
+
+
+
+
 17. **Having the following DB tables diagram:** *=> 10 points*
 
 ![](https://github.com/lentyaishe/masa-exam/blob/dev/resources/db-relations.jpg)
@@ -154,6 +186,13 @@ console.log(sum);
 			const zeroes: number = places - input.toString().length + 1;
 			return Array(+(zeroes > 0 && zeroes)).join("0") + input.toString();
 		}
+
+public static function which input two parameters (input as a number and plases s a number). Finally we get a string.
+inside the function we create const zeroes as a number with logic (places - input.toString().length + 1)
+
+Here ==> (input.toString().length) we count length string of number variable input.
+
+Finally we get a string in return where in Array all zeroes which > 0 and exists join with "0" and then plus input as a string
 
 20. **Fix the following code and fill the required gaps in it by the coding standards. The purpose of this code is to verify the user is a member of a specific role and in case the user is the user data is returned by the isUserPermitted() method. Treat the comments as actual code written that should not be changed:** *=> 15 points*
 
